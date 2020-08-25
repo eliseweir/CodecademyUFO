@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 
-// Define functions
+// initial greeting
 void greet() {
   std::cout << "=============\n" <<
   "UFO: The Game\n" <<
@@ -9,13 +9,16 @@ void greet() {
   "Instructions: save your friend from alien abduction by guessing the letters in the codeword.\n";
 }
 
+// display a list of incorrect guesses so far as well as guessed letters in the codeword
 void display_status(std::vector<char> incorrect, std::string answer) {
+  // letters guessed incorrectly so far
   std::cout << "Incorrect Guesses: ";
     for(int k=0; k<incorrect.size(); k++) {
       std::cout << incorrect[k] << " ";
     }
     std::cout << "\n";
 
+    // letters of the codeword guessed correctly so far
     std::cout << "Codeword: ";
     for(int k=0; k<answer.size(); k++) {
       std::cout << answer[k] << " ";
@@ -23,6 +26,7 @@ void display_status(std::vector<char> incorrect, std::string answer) {
     std::cout << "\n";
 }
 
+// display the results when word is guessed or 6 wrong letters have been guessed
 void end_game(std::string answer, std::string codeword) {
     if (answer == codeword) {
     std::cout << "Hooray! You saved the person and earned a medal of honor!\n";
@@ -33,7 +37,8 @@ void end_game(std::string answer, std::string codeword) {
 }
 
 
-
+// display ASCII "animation" corresponding to the number of missed guesses
+// written by Codecademy.com
 void display_misses(int misses) {
 
   if (misses == 0 || misses == 1) {
